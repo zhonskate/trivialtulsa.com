@@ -143,8 +143,9 @@
 }
 
 .question-date {
-  color: #666;
+  color: white;
   font-size: 0.9rem;
+  font-weight: 500;
 }
 
 .preview-content {
@@ -159,13 +160,39 @@
   line-height: 1.4;
 }
 
+.answer-container {
+  margin-top: 0.75rem;
+}
+
 .preview-answer {
-  color: #666;
   font-size: 0.95rem;
   line-height: 1.4;
   padding: 0.75rem;
-  background: #f8f9fa;
   border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+}
+
+.preview-answer.spoiler {
+  background: #f8f9fa;
+  color: #adb5bd;
+  border: 1px solid #dee2e6;
+  text-align: center;
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.preview-answer.spoiler:hover {
+  background: #e9ecef;
+  color: #6c757d;
+  border-color: #ced4da;
+  opacity: 1;
+}
+
+.preview-answer.revealed {
+  color: #666;
+  background: #f8f9fa;
   border-left: 4px solid #e9ecef;
 }
 

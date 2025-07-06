@@ -9,6 +9,7 @@ const BrowseQuestions = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedDate, setSelectedDate] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
+  const [revealedAnswers, setRevealedAnswers] = useState(new Set());
 
   const categories = ['All', ...new Set(questionsData.map(q => q.category))];
   const dates = ['All', ...new Set(questionsData.map(q => q.date))].sort().reverse();
@@ -44,6 +45,18 @@ const BrowseQuestions = () => {
       'Art': '#795548'
     };
     return colors[category] || '#607D8B';
+  };
+
+  const toggleAnswerReveal = (questionId) => {
+    setRevealedAnswers(prev => {
+      const newSet = new Set(prev);
+      if (newSet.has(questionId)) {
+        newSet.delete(questionId);
+      } else {
+        newSet.add(questionId);
+      }
+      return newSet;
+    });
   };
 
   return (
@@ -113,7 +126,14 @@ const BrowseQuestions = () => {
               
               <div className="preview-content">
                 <h3 className="preview-question">{question.question}</h3>
-                <p className="preview-answer">{question.answer}</p>
+                <div className="answer-container">
+                  <div 
+                    className={`preview-answer ${revealedAnswers.has(question.id) ? 'revealed' : 'spoiler'}`}
+                    onClick={() => toggleAnswerReveal(question.id)}
+                  >
+                    {revealedAnswers.has(question.id) ? question.answer : 'Click to reveal answer'}
+                  </div>
+                </div>
               </div>
 
               <div className="preview-actions">
