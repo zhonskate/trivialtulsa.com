@@ -8,7 +8,7 @@ const RandomRedirect = () => {
   useEffect(() => {
     const randomIndex = Math.floor(Math.random() * questionsData.length);
     const randomQuestion = questionsData[randomIndex];
-    navigate(`/questions/${randomQuestion.id}`, { replace: true });
+    navigate(`/preguntes/${randomQuestion.id}`, { replace: true });
   }, [navigate]);
 
   return (
@@ -21,7 +21,7 @@ const RandomRedirect = () => {
       color: 'white',
       fontSize: '1.2rem'
     }}>
-      Loading random question...
+      Carregant pregunta aleatòria...
     </div>
   );
 };

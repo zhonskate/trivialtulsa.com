@@ -22,8 +22,8 @@ const QuestionPage = () => {
     if (navigator.share) {
       try {
         await navigator.share({
-          title: 'Trivial Tulsa Question',
-          text: `Check out this trivia question: ${question.question}`,
+          title: 'Pregunta del Trivial del Tulsa',
+          text: `Mira aquesta pregunta de trivial: ${question.question}`,
           url: window.location.href
         });
       } catch (err) {
@@ -63,13 +63,37 @@ const QuestionPage = () => {
       randomQuestion = questionsData[randomIndex];
     } while (randomQuestion.id === currentQuestionId && questionsData.length > 1);
     
-    navigate(`/questions/${randomQuestion.id}`);
+    navigate(`/preguntes/${randomQuestion.id}`);
+  };
+
+  const handleNextQuestion = () => {
+    const currentQuestionId = parseInt(id);
+    const currentIndex = questionsData.findIndex(q => q.id === currentQuestionId);
+    
+    if (currentIndex !== -1) {
+      // Go to next question, or loop back to first if at end
+      const nextIndex = (currentIndex + 1) % questionsData.length;
+      const nextQuestion = questionsData[nextIndex];
+      navigate(`/preguntes/${nextQuestion.id}`);
+    }
+  };
+
+  const handlePreviousQuestion = () => {
+    const currentQuestionId = parseInt(id);
+    const currentIndex = questionsData.findIndex(q => q.id === currentQuestionId);
+    
+    if (currentIndex !== -1) {
+      // Go to previous question, or loop to last if at beginning
+      const prevIndex = currentIndex === 0 ? questionsData.length - 1 : currentIndex - 1;
+      const prevQuestion = questionsData[prevIndex];
+      navigate(`/preguntes/${prevQuestion.id}`);
+    }
   };
 
   if (loading) {
     return (
       <div className="question-page">
-        <div className="loading">Loading question...</div>
+        <div className="loading">Carregant pregunta...</div>
       </div>
     );
   }
@@ -78,9 +102,9 @@ const QuestionPage = () => {
     return (
       <div className="question-page">
         <div className="error-container">
-          <h2>Question not found</h2>
-          <p>The question you're looking for doesn't exist.</p>
-          <Link to="/" className="back-button">Go Home</Link>
+          <h2>Pregunta no trobada</h2>
+          <p>La pregunta que cerques no existeix.</p>
+          <Link to="/" className="back-button">Anar a l'Inici</Link>
         </div>
       </div>
     );
@@ -90,25 +114,44 @@ const QuestionPage = () => {
     <div className="question-page">
       <div className="question-container">
         <div className="question-header">
-          <Link to="/" className="back-link">← Back to Home</Link>
+          <Link to="/" className="back-link">← Tornar a l'Inici</Link>
           <div className="question-meta">
-            <span className="question-number">Question #{question.id}</span>
+            <span className="question-number">Pregunta #{question.id}</span>
             <span className="question-date">{new Date(question.date).toLocaleDateString()}</span>
           </div>
         </div>
 
-        <QuestionCard
-          question={question.question}
-          category={question.category}
-          answer={question.answer}
-        />
+        <div className="question-with-navigation">
+          <button 
+            className="nav-chevron nav-chevron-left"
+            onClick={handlePreviousQuestion}
+            title="Pregunta anterior"
+          >
+            ‹
+          </button>
+          
+          <QuestionCard
+            question={question.question}
+            category={question.category}
+            answer={question.answer}
+            questionId={question.id}
+          />
+          
+          <button 
+            className="nav-chevron nav-chevron-right"
+            onClick={handleNextQuestion}
+            title="Següent pregunta"
+          >
+            ›
+          </button>
+        </div>
 
         <div className="question-actions">
           <button onClick={handleShare} className={`share-button ${showCopied ? 'copied' : ''}`}>
-            {showCopied ? 'Link Copied!' : 'Share Question'}
+            {showCopied ? 'Enllaç Copiat!' : 'Compartir Pregunta'}
           </button>
           <button onClick={handleRandomQuestion} className="random-button">
-            Random Question
+            Pregunta Aleatòria
           </button>
         </div>
       </div>

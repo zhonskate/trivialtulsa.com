@@ -37,11 +37,11 @@ const BrowseQuestions = () => {
 
   const getCategoryColor = (category) => {
     const colors = {
-      'Geography': '#4CAF50',
-      'Sports': '#FF9800',
-      'History': '#9C27B0',
-      'Entertainment': '#E91E63',
-      'Science': '#2196F3',
+      'Geografia': '#4CAF50',
+      'Esports': '#FF9800',
+      'Història': '#9C27B0',
+      'Entreteniment': '#E91E63',
+      'Ciència': '#2196F3',
       'Art': '#795548'
     };
     return colors[category] || '#607D8B';
@@ -63,49 +63,51 @@ const BrowseQuestions = () => {
     <div className="browse-questions-page">
       <div className="browse-container">
         <div className="browse-header">
-          <Link to="/" className="back-link">← Back to Home</Link>
-          <h1>Browse Questions</h1>
+          <Link to="/" className="back-link">← Tornar a l'Inici</Link>
+          <h1>Explorar Preguntes</h1>
         </div>
 
         <div className="filter-section">
           <div className="search-group">
-            <label>Search:</label>
+            <label>Cercar:</label>
             <input
               type="text"
-              placeholder="Search questions and answers..."
+              placeholder="Cercar preguntes i respostes..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
 
           <div className="filter-group">
-            <label>Category:</label>
+            <label>Categoria:</label>
             <select 
               value={selectedCategory} 
               onChange={(e) => setSelectedCategory(e.target.value)}
             >
               {categories.map(category => (
-                <option key={category} value={category}>{category}</option>
+                <option key={category} value={category}>
+                  {category === 'All' ? 'Totes' : category}
+                </option>
               ))}
             </select>
           </div>
 
           <div className="filter-group">
-            <label>Date:</label>
+            <label>Data:</label>
             <select 
               value={selectedDate} 
               onChange={(e) => setSelectedDate(e.target.value)}
             >
               {dates.map(date => (
                 <option key={date} value={date}>
-                  {date === 'All' ? 'All Dates' : new Date(date).toLocaleDateString()}
+                  {date === 'All' ? 'Totes les Dates' : new Date(date).toLocaleDateString()}
                 </option>
               ))}
             </select>
           </div>
 
           <div className="results-count">
-            {filteredQuestions.length} question{filteredQuestions.length !== 1 ? 's' : ''}
+            {filteredQuestions.length} pregunt{filteredQuestions.length !== 1 ? 'es' : 'a'}
           </div>
         </div>
 
@@ -131,18 +133,18 @@ const BrowseQuestions = () => {
                     className={`preview-answer ${revealedAnswers.has(question.id) ? 'revealed' : 'spoiler'}`}
                     onClick={() => toggleAnswerReveal(question.id)}
                   >
-                    {revealedAnswers.has(question.id) ? question.answer : 'Click to reveal answer'}
+                    {revealedAnswers.has(question.id) ? question.answer : 'Fes clic per mostrar la resposta'}
                   </div>
                 </div>
               </div>
 
               <div className="preview-actions">
                 <Link 
-                  to={`/questions/${question.id}`}
+                  to={`/preguntes/${question.id}`}
                   className="view-button"
                   style={{ backgroundColor: getCategoryColor(question.category) }}
                 >
-                  View Question
+                  Veure Pregunta
                 </Link>
               </div>
             </div>
@@ -151,8 +153,8 @@ const BrowseQuestions = () => {
 
         {filteredQuestions.length === 0 && (
           <div className="no-results">
-            <h3>No questions found</h3>
-            <p>Try adjusting your filters to see more questions.</p>
+            <h3>No s'han trobat preguntes</h3>
+            <p>Prova d'ajustar els filtres per veure més preguntes.</p>
           </div>
         )}
       </div>

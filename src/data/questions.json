@@ -2,106 +2,106 @@
   {
     "id": 1,
     "date": "2024-07-01",
-    "category": "Geography",
-    "question": "What is the capital of Oklahoma?",
+    "category": "Geografia",
+    "question": "Quina és la capital d'Oklahoma?",
     "answer": "Oklahoma City"
   },
   {
     "id": 2,
     "date": "2024-07-01",
-    "category": "Sports",
-    "question": "Which NFL team is based in Oklahoma City?",
-    "answer": "There is no NFL team in Oklahoma City. The closest NFL team is the Dallas Cowboys."
+    "category": "Esports",
+    "question": "Quin equip de la NFL té la seua seu a Oklahoma City?",
+    "answer": "No hi ha cap equip de la NFL a Oklahoma City. L'equip més pròxim són els Dallas Cowboys."
   },
   {
     "id": 3,
     "date": "2024-07-01",
-    "category": "History",
-    "question": "In what year did the Land Rush occur in Oklahoma?",
+    "category": "Història",
+    "question": "En quin any va ocórrer la Land Rush a Oklahoma?",
     "answer": "1889"
   },
   {
     "id": 4,
     "date": "2024-07-08",
-    "category": "Entertainment",
-    "question": "Which famous musical was inspired by the Oklahoma Territory?",
+    "category": "Entreteniment",
+    "question": "Quin famós musical va estar inspirat pel Territori d'Oklahoma?",
     "answer": "Oklahoma!"
   },
   {
     "id": 5,
     "date": "2024-07-08",
-    "category": "Science",
-    "question": "What is the state bird of Oklahoma?",
-    "answer": "Scissor-tailed Flycatcher"
+    "category": "Ciència",
+    "question": "Quin és l'ocell estatal d'Oklahoma?",
+    "answer": "Tirannet cuallarga (Scissor-tailed Flycatcher)"
   },
   {
     "id": 6,
     "date": "2024-07-15",
-    "category": "Geography",
-    "question": "What river runs through Tulsa, Oklahoma?",
-    "answer": "Arkansas River"
+    "category": "Geografia",
+    "question": "Quin riu passa per Tulsa, Oklahoma?",
+    "answer": "Riu Arkansas"
   },
   {
     "id": 7,
     "date": "2024-07-15",
-    "category": "Sports",
-    "question": "What is the name of Tulsa's professional soccer team?",
+    "category": "Esports",
+    "question": "Com es diu l'equip de futbol professional de Tulsa?",
     "answer": "FC Tulsa"
   },
   {
     "id": 8,
     "date": "2024-07-15",
-    "category": "History",
-    "question": "What was the original name of Tulsa before it became a city?",
+    "category": "Història",
+    "question": "Quin era el nom original de Tulsa abans de convertir-se en ciutat?",
     "answer": "Tulsey Town"
   },
   {
     "id": 9,
     "date": "2024-07-22",
     "category": "Art",
-    "question": "Which famous Art Deco building is a landmark in downtown Tulsa?",
+    "question": "Quin famós edifici Art Déco és un emblema del centre de Tulsa?",
     "answer": "Boston Avenue Methodist Church"
   },
   {
     "id": 10,
     "date": "2024-07-22",
-    "category": "Entertainment",
-    "question": "What major music festival takes place annually in Tulsa?",
+    "category": "Entreteniment",
+    "question": "Quin gran festival de música té lloc anualment a Tulsa?",
     "answer": "Mayfest"
   },
   {
     "id": 11,
     "date": "2024-07-22",
-    "category": "Science",
-    "question": "What type of rock formation is common in northeastern Oklahoma?",
-    "answer": "Limestone"
+    "category": "Ciència",
+    "question": "Quin tipus de formació rocosa és comuna al nord-est d'Oklahoma?",
+    "answer": "Calcària"
   },
   {
     "id": 12,
     "date": "2024-07-29",
-    "category": "History",
-    "question": "In what year was the University of Tulsa founded?",
+    "category": "Història",
+    "question": "En quin any va ser fundada la Universitat de Tulsa?",
     "answer": "1894"
   },
   {
     "id": 13,
     "date": "2024-07-29",
-    "category": "Geography",
-    "question": "What is the nickname for Oklahoma?",
+    "category": "Geografia",
+    "question": "Quin és el sobrenom d'Oklahoma?",
     "answer": "The Sooner State"
   },
   {
     "id": 14,
     "date": "2024-07-29",
-    "category": "Sports",
-    "question": "What sport is the University of Tulsa best known for?",
-    "answer": "Football"
+    "category": "Esports",
+    "question": "Per quin esport és més coneguda la Universitat de Tulsa?",
+    "answer": "Futbol americà"
   },
   {
     "id": 15,
     "date": "2024-08-05",
-    "category": "Entertainment",
-    "question": "Which famous musician was born in Tulsa and sang 'American Pie'?",
-    "answer": "This is a trick question - Don McLean (American Pie) was not from Tulsa. Leon Russell was a famous Tulsa musician."
+    "category": "Entreteniment",
+    "question": "Quin famós músic va nàixer a Tulsa i va cantar 'American Pie'?",
+    "answer": "Aquesta és una pregunta trampa - Don McLean (American Pie) no era de Tulsa. Leon Russell era un músic famós de Tulsa."
   }
 ]

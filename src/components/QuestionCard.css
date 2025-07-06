@@ -18,6 +18,10 @@
   transform: rotateY(180deg);
 }
 
+.question-card.no-transition {
+  transition: none !important;
+}
+
 .card-front, .card-back {
   position: absolute;
   width: 100%;
@@ -106,7 +110,7 @@
   justify-content: center;
 }
 
-.flip-back-button, .next-button {
+.flip-back-button, .next-button, .impugnar-button {
   padding: 10px 20px;
   border: none;
   border-radius: 20px;
@@ -114,6 +118,9 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
 }
 
 .flip-back-button {
@@ -138,6 +145,28 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
+.impugnar-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.3);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.impugnar-icon:hover {
+  color: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.05);
+  transform: scale(1.1);
+}
+
 @media (max-width: 600px) {
   .question-card-container {
     max-width: 90%;
@@ -150,5 +179,18 @@
   
   .answer-text {
     font-size: 16px;
+  }
+  
+  .action-buttons {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .impugnar-icon {
+    top: 12px;
+    right: 12px;
+    font-size: 14px;
+    width: 20px;
+    height: 20px;
   }
 }

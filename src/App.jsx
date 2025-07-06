@@ -11,9 +11,9 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/questions/:id" element={<QuestionPage />} />
-          <Route path="/random" element={<RandomRedirect />} />
-          <Route path="/browse" element={<BrowseQuestions />} />
+          <Route path="/preguntes/:id" element={<QuestionPage />} />
+          <Route path="/aleatoria" element={<RandomRedirect />} />
+          <Route path="/explorar" element={<BrowseQuestions />} />
         </Routes>
       </div>
     </Router>

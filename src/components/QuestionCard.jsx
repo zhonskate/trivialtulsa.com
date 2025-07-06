@@ -1,16 +1,31 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './QuestionCard.css';
 
-const QuestionCard = ({ question, category, answer, onNext, showNext = false }) => {
+const QuestionCard = ({ question, category, answer, onNext, showNext = false, questionId = null }) => {
   const [isFlipped, setIsFlipped] = useState(false);
+  const [skipAnimation, setSkipAnimation] = useState(false);
+
+  // Reset card to front when question changes (skip animation)
+  useEffect(() => {
+    // Immediately disable transition and force to front
+    setSkipAnimation(true);
+    setIsFlipped(false);
+    
+    // Re-enable animation after a short delay
+    const timer = setTimeout(() => {
+      setSkipAnimation(false);
+    }, 100);
+    
+    return () => clearTimeout(timer);
+  }, [question, category, answer]);
 
   const getCategoryColor = (category) => {
     const colors = {
-      'Geography': '#4CAF50',
-      'Sports': '#FF9800',
-      'History': '#9C27B0',
-      'Entertainment': '#E91E63',
-      'Science': '#2196F3',
+      'Geografia': '#4CAF50',
+      'Esports': '#FF9800',
+      'Història': '#9C27B0',
+      'Entreteniment': '#E91E63',
+      'Ciència': '#2196F3',
       'Art': '#795548'
     };
     return colors[category] || '#607D8B';
@@ -18,7 +33,7 @@ const QuestionCard = ({ question, category, answer, onNext, showNext = false }) 
 
   return (
     <div className="question-card-container">
-      <div className={`question-card ${isFlipped ? 'flipped' : ''}`}>
+      <div className={`question-card ${isFlipped ? 'flipped' : ''} ${skipAnimation ? 'no-transition' : ''}`}>
         <div className="card-front" style={{ borderColor: getCategoryColor(category) }}>
           <div className="category-badge" style={{ backgroundColor: getCategoryColor(category) }}>
             {category}
@@ -31,7 +46,7 @@ const QuestionCard = ({ question, category, answer, onNext, showNext = false }) 
             onClick={() => setIsFlipped(true)}
             style={{ backgroundColor: getCategoryColor(category) }}
           >
-            Reveal Answer
+            Mostrar Resposta
           </button>
         </div>
         
@@ -39,6 +54,15 @@ const QuestionCard = ({ question, category, answer, onNext, showNext = false }) 
           <div className="category-badge" style={{ backgroundColor: getCategoryColor(category) }}>
             {category}
           </div>
+          {questionId && (
+            <a 
+              href={`mailto:javier@cordada.io?subject=Impugnar pregunta #${questionId}`}
+              className="impugnar-icon"
+              title="Impugnar aquesta pregunta"
+            >
+              ⚠
+            </a>
+          )}
           <div className="answer-text">
             {answer}
           </div>
@@ -47,7 +71,7 @@ const QuestionCard = ({ question, category, answer, onNext, showNext = false }) 
               className="flip-back-button"
               onClick={() => setIsFlipped(false)}
             >
-              Show Question
+              Mostrar Pregunta
             </button>
             {showNext && (
               <button 
@@ -55,7 +79,7 @@ const QuestionCard = ({ question, category, answer, onNext, showNext = false }) 
                 onClick={onNext}
                 style={{ backgroundColor: getCategoryColor(category) }}
               >
-                Next Question
+                Següent Pregunta
               </button>
             )}
           </div>
