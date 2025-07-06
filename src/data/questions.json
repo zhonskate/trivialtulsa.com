@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "date": "2024-07-01",
+    "category": "Geography",
+    "question": "What is the capital of Oklahoma?",
+    "answer": "Oklahoma City"
+  },
+  {
+    "id": 2,
+    "date": "2024-07-01",
+    "category": "Sports",
+    "question": "Which NFL team is based in Oklahoma City?",
+    "answer": "There is no NFL team in Oklahoma City. The closest NFL team is the Dallas Cowboys."
+  },
+  {
+    "id": 3,
+    "date": "2024-07-01",
+    "category": "History",
+    "question": "In what year did the Land Rush occur in Oklahoma?",
+    "answer": "1889"
+  },
+  {
+    "id": 4,
+    "date": "2024-07-08",
+    "category": "Entertainment",
+    "question": "Which famous musical was inspired by the Oklahoma Territory?",
+    "answer": "Oklahoma!"
+  },
+  {
+    "id": 5,
+    "date": "2024-07-08",
+    "category": "Science",
+    "question": "What is the state bird of Oklahoma?",
+    "answer": "Scissor-tailed Flycatcher"
+  },
+  {
+    "id": 6,
+    "date": "2024-07-15",
+    "category": "Geography",
+    "question": "What river runs through Tulsa, Oklahoma?",
+    "answer": "Arkansas River"
+  },
+  {
+    "id": 7,
+    "date": "2024-07-15",
+    "category": "Sports",
+    "question": "What is the name of Tulsa's professional soccer team?",
+    "answer": "FC Tulsa"
+  },
+  {
+    "id": 8,
+    "date": "2024-07-15",
+    "category": "History",
+    "question": "What was the original name of Tulsa before it became a city?",
+    "answer": "Tulsey Town"
+  },
+  {
+    "id": 9,
+    "date": "2024-07-22",
+    "category": "Art",
+    "question": "Which famous Art Deco building is a landmark in downtown Tulsa?",
+    "answer": "Boston Avenue Methodist Church"
+  },
+  {
+    "id": 10,
+    "date": "2024-07-22",
+    "category": "Entertainment",
+    "question": "What major music festival takes place annually in Tulsa?",
+    "answer": "Mayfest"
+  },
+  {
+    "id": 11,
+    "date": "2024-07-22",
+    "category": "Science",
+    "question": "What type of rock formation is common in northeastern Oklahoma?",
+    "answer": "Limestone"
+  },
+  {
+    "id": 12,
+    "date": "2024-07-29",
+    "category": "History",
+    "question": "In what year was the University of Tulsa founded?",
+    "answer": "1894"
+  },
+  {
+    "id": 13,
+    "date": "2024-07-29",
+    "category": "Geography",
+    "question": "What is the nickname for Oklahoma?",
+    "answer": "The Sooner State"
+  },
+  {
+    "id": 14,
+    "date": "2024-07-29",
+    "category": "Sports",
+    "question": "What sport is the University of Tulsa best known for?",
+    "answer": "Football"
+  },
+  {
+    "id": 15,
+    "date": "2024-08-05",
+    "category": "Entertainment",
+    "question": "Which famous musician was born in Tulsa and sang 'American Pie'?",
+    "answer": "This is a trick question - Don McLean (American Pie) was not from Tulsa. Leon Russell was a famous Tulsa musician."
+  }
+]
