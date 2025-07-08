@@ -8,11 +8,13 @@ const BrowseQuestions = () => {
   const [filteredQuestions, setFilteredQuestions] = useState(questionsData);
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedDate, setSelectedDate] = useState('All');
+  const [selectedRound, setSelectedRound] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [revealedAnswers, setRevealedAnswers] = useState(new Set());
 
   const categories = ['All', ...new Set(questionsData.map(q => q.category))];
   const dates = ['All', ...new Set(questionsData.map(q => q.date))].sort().reverse();
+  const rounds = ['All', ...new Set(questionsData.map(q => q.round))].sort();
 
   useEffect(() => {
     let filtered = questions;
@@ -25,6 +27,10 @@ const BrowseQuestions = () => {
       filtered = filtered.filter(q => q.date === selectedDate);
     }
 
+    if (selectedRound !== 'All') {
+      filtered = filtered.filter(q => q.round === selectedRound);
+    }
+
     if (searchQuery.trim() !== '') {
       filtered = filtered.filter(q => 
         q.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -33,7 +39,7 @@ const BrowseQuestions = () => {
     }
 
     setFilteredQuestions(filtered);
-  }, [selectedCategory, selectedDate, searchQuery, questions]);
+  }, [selectedCategory, selectedDate, selectedRound, searchQuery, questions]);
 
   const getCategoryColor = (category) => {
     const colors = {
@@ -42,7 +48,11 @@ const BrowseQuestions = () => {
       'Història': '#9C27B0',
       'Entreteniment': '#E91E63',
       'Ciència': '#2196F3',
-      'Art': '#795548'
+      'Art': '#795548',
+      'Cine i música': '#FF5722',
+      'Temes valencians': '#FFC107',
+      'Art i literatura': '#8E24AA',
+      'Miscelània': '#00ACC1'
     };
     return colors[category] || '#607D8B';
   };
@@ -106,6 +116,20 @@ const BrowseQuestions = () => {
             </select>
           </div>
 
+          <div className="filter-group">
+            <label>Ronda:</label>
+            <select 
+              value={selectedRound} 
+              onChange={(e) => setSelectedRound(e.target.value)}
+            >
+              {rounds.map(round => (
+                <option key={round} value={round}>
+                  {round === 'All' ? 'Totes les Rondes' : round === 'general' ? 'General' : 'Pro'}
+                </option>
+              ))}
+            </select>
+          </div>
+
           <div className="results-count">
             {filteredQuestions.length} pregunt{filteredQuestions.length !== 1 ? 'es' : 'a'}
           </div>
@@ -121,7 +145,11 @@ const BrowseQuestions = () => {
                 >
                   {question.category}
                 </span>
-                <span className="question-date">
+                <span className="round-tag">
+                  <span>{question.round === 'general' ? '👥' : '⭐'}</span>
+                  {question.round === 'general' ? 'General' : 'Pro'}
+                </span>
+                <span className="browse-question-date">
                   {new Date(question.date).toLocaleDateString()}
                 </span>
               </div>

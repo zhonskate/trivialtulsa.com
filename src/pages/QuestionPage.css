@@ -44,9 +44,10 @@
   font-size: 1.1rem;
 }
 
-.question-date {
-  font-size: 0.9rem;
-  opacity: 0.7;
+.question-page-date {
+  font-size: 1.1rem;
+  color: white !important;
+  font-weight: 600;
 }
 
 .question-with-navigation {

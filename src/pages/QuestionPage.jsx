@@ -117,7 +117,7 @@ const QuestionPage = () => {
           <Link to="/" className="back-link">← Tornar a l'Inici</Link>
           <div className="question-meta">
             <span className="question-number">Pregunta #{question.id}</span>
-            <span className="question-date">{new Date(question.date).toLocaleDateString()}</span>
+            <span className="question-page-date">{new Date(question.date).toLocaleDateString()}</span>
           </div>
         </div>
 
@@ -134,6 +134,7 @@ const QuestionPage = () => {
             question={question.question}
             category={question.category}
             answer={question.answer}
+            round={question.round}
             questionId={question.id}
           />
           
